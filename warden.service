@@ -1,0 +1,22 @@
+# dont forget to - systemctl daemon-reload
+# then - systemctl start warden
+[Unit]
+Description=Processes supervisor service
+#Wants=network-online.target
+#After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/user/warden/
+ExecStart=/home/user/warden/warden
+#ExecStop=/home/user/warden/warden stop
+#ExecReload=/home/user/warden/warden restart
+TimeoutSec=60
+#OOMScoreAdjust=-100
+#Autorestart:
+Restart=always
+
+
+[Install]
+WantedBy=multi-user.target
+
